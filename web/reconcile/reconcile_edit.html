@@ -1,0 +1,131 @@
+<div class="row-fluid">
+
+					<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+						<div class="portlet box grey">
+
+										<div class="portlet-title">
+
+											<div class="caption"><i class="icon-reorder"></i>{{"diff_query"| translate }}</div>
+											<div class="tools">
+
+												<a href="javascript:;" class="collapse"></a>
+
+											</div>
+
+										</div>
+
+										<div class="portlet-body form">
+
+											<!-- BEGIN FORM-->
+
+										    <form action="#" class="horizontal-form">
+
+                                            <div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										        {{errorMessage}}
+									        </div>
+
+									        <div ng-show='isSuccess' class="alert alert-success">
+											        {{ errorMessage | translate }}
+									        </div>
+
+										        <div class="row-fluid">
+										            <div class="span4">
+
+										                <div class="control-group">
+
+										                    <label class="control-label">{{"diff_date_from"| translate }}</label>
+										                    <div class="controls">
+										                        <div class="reconcileFrom input-append date form_datetime">
+										                            <input type="text" style='height: 24px'>
+										                            <span class="add-on"><i  data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+										                        </div>
+
+
+										                    </div>
+
+
+										                </div>
+
+										            </div>
+
+										            <div class="span4">
+
+										                <div class="control-group">
+
+										                    <label class="control-label">{{"diff_date_to"| translate }}</label>
+
+										                    <div class="controls">
+
+										                        <div class="reconcileTo input-append date form_datetime">
+										                            <input type="text" style='height: 24px'>
+										                            <span class="add-on"><i  data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+										                        </div>
+
+										                    </div>
+
+										                </div>
+
+										            </div>
+
+
+
+										            <div class="span4 ">
+
+										                <div class="control-group">
+
+										                    <label class="control-label" for="orderId">{{"clr_merchant_name"| translate }}</label>
+
+										                    <div class="controls">
+
+										                        <select class="m-wrap" ng-model='request.merchantCode'>
+										                            <option value='' selected>{{"common_btn_all"| translate }}</option>
+										                            <option ng-repeat='item in merchants' value="{{item.MerchantCode}}">{{item.MerchantDesc}}</option>
+										                        </select>
+
+										                        <span class="help-block"></span>
+
+										                    </div>
+
+										                </div>
+
+										            </div>
+
+										            <!--/span-->
+										        </div>
+
+										        <!--/row-->
+
+										        <div class="row-fluid">
+
+										            <a ng-click='onQuery()' type="submit" class="btn grey"><i class="icon-search"></i> {{"common_btn__query"| translate }}</a>
+										            <a type="submit" class="btn grey" ng-click='onRedoReconcile()'><i class="icon-repeat"></i> {{"reconcile_redo"| translate }}</a>
+										        </div>
+
+										    </form>
+
+											<!-- END FORM--> 
+
+										</div>
+
+						</div>
+
+
+						<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-list-alt"></i>{{"diff_title"| translate }}</div>
+							</div>
+
+							<div class="portlet-body">	
+								<span>{{"diff_memo"| translate }}</span>	
+								<div ng-include="'reconcile/reconcile_edit_list.html'"></div>
+							</div>
+						</div>
+
+						<!-- END EXAMPLE TABLE PORTLET-->
+
+					</div>
+
+</div>

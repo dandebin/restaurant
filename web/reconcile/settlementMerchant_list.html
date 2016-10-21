@@ -1,0 +1,92 @@
+<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+									<thead>
+				 							<th class="hidden-480" >
+								               {{"merchant_edit_code"| translate }}
+								            </th>
+									        <th >
+									            {{"clr_merchant_name"| translate }}
+									        </th>
+                                        	<th >
+								                {{"clr_username"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_clr_date"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_tran_count"| translate }}
+								            </th>
+									        <th >
+									            {{"clr_tran_amount"| translate }}
+									        </th>
+                                        	<th >
+								                {{"clr_writeoff_count"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_writeoff_amount"| translate }}
+								            </th>
+									        <th class="hidden-480">
+									            {{"clr_refund_count"| translate }}
+									        </th>
+                                        	<th class="hidden-480" >
+								                {{"clr_refund_amount"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_fee"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_clr_currency"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_clr_amount"| translate }}
+								            </th>
+								             <th class="hidden-480">
+								              	 {{"common_btn_option"| translate }}
+								            </th>							
+									</thead>
+									<tbody>								
+										<tr ng-repeat="item in $data">
+								            <td class="hidden-480" >
+								                {{item.MerchantCode}}
+								            </td>
+										    <td >
+										        {{item.MerchantDesc}}
+										    </td>
+                                            <td >
+								                {{item.UserName}}
+								            </td>
+								            <td class="hidden-480">
+								                {{item.ReconcileDateForMerchant}}
+								            </td>
+								            <td class='number2'>
+								                {{item.TranCount}}
+								            </td>
+										    <td class='number2'>
+										        {{item.TranAmount}}
+										    </td>
+                                            <td class='number2'>
+								                {{item.WriteOffCount}}
+								            </td>
+								            <td class='number2'>
+								                {{item.WriteOffAmount}}
+								            </td>
+										    <td class="number2 hidden-480">
+										        {{item.RefundCount}}
+										    </td>
+                                            <td class="number2 hidden-480" >
+								                {{item.RefundAmount}}
+								            </td>
+								            <td class="number2 hidden-480" >
+								                {{item.Fee}}
+								            </td>
+								            <td class="hidden-480" >
+								                {{item.RefundCurrencyCode}}
+								            </td>
+								            <td class='number2'>
+								                {{item.SettlementAmount}}
+								            </td>
+								             <td class="hidden-480" >
+								               <a ng-click='onDownload(item)' type="submit" class="btn grey"><i class="icon-download"></i> {{"common_btn__download"| translate }}</a>
+								            </td>
+										</tr>
+									</tbody>							      
+</table>

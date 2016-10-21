@@ -1,0 +1,337 @@
+<div class="row-fluid">
+
+<div class="portlet box yellow">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>配置</div>
+	</div>
+	 <div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="#" class="horizontal-form">
+
+                    <div class="row-fluid">
+
+                        <div class="span6">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="orderId">控制项</label>
+
+                                <div class="controls inline">
+                                	<input type="checkbox" id="cbStart" value="option1" ng-model='cmd.started'>开启
+
+                                	<input type="checkbox" id="cbBuy" value="option2" ng-model='cmd.buyEnabled'>可买
+
+                                	<input type="checkbox" id="cbSell" value="option2" ng-model='cmd.sellEnabled'>可卖
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="span6">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >参数配置</label>
+
+                                <div class="controls">
+
+                                   <input type="text" class="m-wrap span12" placeholder="" ng-model='config.Param'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+
+                                   
+                    </div>
+
+                     <div class="row-fluid">
+
+                        <div class="span6">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >状态</label>
+
+                                <div class="controls">
+
+                                   <input type="text" disabled class="m-wrap span12" placeholder="" ng-model='config.StateName'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div> 
+
+
+                        <div class="span6">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >系统参数</label>
+
+                                <div class="controls">
+
+                                   <input type="text" disabled class="m-wrap span12" placeholder="" ng-model='config.Param2'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+          
+                    </div>
+                    <div class="row-fluid">
+                        <a ng-click='onSubmit()' class="btn grey"><i class="icon-submit"></i>提交</a>
+                    </div>                   
+                </form>
+
+                <!-- END FORM-->
+
+            </div>  
+</div>	
+
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-cogs"></i>持仓情况</div>
+    </div>
+    <div class="portlet-body flip-scroll">
+        <table class="table-bordered table-striped table-condensed flip-content">
+            <thead class="flip-content">
+                <tr>
+                    <th>序号</th>
+                    <th>交易品种</th>
+                    <th class="numeric">交易方向</th>
+                    <th class="numeric">交易手数</th>
+                    <th class="numeric">盈利</th>
+                    <th >交易价格</th>
+                    <th >交易时间</th>
+                    <th >状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in trades">
+                    <td >{{$index + 1}}</td>
+                    <td>{{item.Symbol}}</td>
+                    <td class="numeric">{{item.Direction}}</td>
+                    <td class="numeric">{{item.Lots}}</td>
+                    <td >{{item.Profit}}</td>
+                    <td >{{item.Price}}</td>
+                    <td>{{item.Date}}</td>
+                    <td>{{item.State|tradeState}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="portlet box blue">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>下单</div>
+	</div>
+	<div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="#" class="horizontal-form">
+
+                    <div class="row-fluid">
+                    	<div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >合约</label>
+
+                                <div class="controls">
+
+                                   <input type="text" class="m-wrap span12" placeholder="" ng-model='order.symbol'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+                        
+
+                        <div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >价格</label>
+
+                                <div class="controls">
+
+                                   <input type="text" class="m-wrap span12" placeholder="" ng-model='order.price'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+
+                        <div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >手数</label>
+
+                                <div class="controls">
+
+                                  <input type="text" class="m-wrap span12" placeholder="" ng-model='order.lots'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>            
+                    </div>
+
+                    <div class="row-fluid">
+                    	<div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >方向</label>
+
+                                <div class="controls">
+
+                                   <select class="m-wrap span12"  ng-model='order.direction'>
+										<option value='0' selected='selected'>做多</option>
+										<option value='1'>做空</option>
+									</select>
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+                        
+
+                        <div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >开平</label>
+
+                                <div class="controls">
+
+                                    <select ng-model='order.flag'>
+										<option value='0' selected='selected'>开仓</option>
+										<option value='1'>平仓</option>
+									</select>
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>  
+
+                        <div class="span4">
+
+                            <div class="control-group">
+
+                                <label class="control-label" >BrokerID</label>
+
+                                <div class="controls">
+
+                                    <input type="text" class="m-wrap span12" placeholder="88888" ng-model='order.brokerID'>
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row-fluid">
+                        <a ng-click='onOrderSubmit()' class="btn grey"><i class="icon-submit"></i>提交</a>
+                    </div>                   
+                </form>
+
+                <!-- END FORM-->
+
+    </div>  
+</div>	
+
+<div class="portlet box green">
+    <div class="portlet-title">
+        <div class="caption"><i class="icon-cogs"></i>行情</div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active">
+                 <input type="checkbox" ng-model='needRefresh' ng-click='onClickNeedRefresh' name="options" class="toggle" >5s刷新</label>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body flip-scroll">
+        <a href="http://www.sse.com.cn/assortment/options/disclo/preinfo/">当日合约查询</a>
+    <!--   
+        <table class="table-bordered table-striped table-condensed flip-content">
+            <thead class="flip-content">
+                <tr>
+                    <th>序号</th>
+                    <th>交易品种</th>
+                    <th >ActionDay</th>
+                    <th class="numeric">ActionPrice</th>
+                    <th class="numeric">AskPrice1</th>
+                    <th class="numeric">BidPrice1</th>
+                    <th class="numeric">LastPrice</th>
+                    <th class="numeric">Delta</th>
+                    <th class="numeric">Gamma</th>
+                    <th class="numeric">CallCost</th>
+                    <th class="numeric">PutCost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in marketdata">
+                    <td >{{$index + 1}}</td>
+                    <td>{{item.InstrumentID}}</td>
+                    <td >{{item.ActionDay}}</td>
+                    <td class="numeric">{{item.ActionPrice}}</td>
+                    <td class="numeric">{{item.AskPrice1}}</td>
+                    <td class="numeric">{{item.BidPrice1}}</td>
+                    <td class="numeric">{{item.LastPrice}}</td>
+                    <td class="numeric">{{item.Delta}}</td>
+                    <td class="numeric">{{item.Gamma}}</td>
+                    <td class="numeric">{{item.CallCost}}</td>
+                    <td class="numeric">{{item.PutCost}}</td>
+                </tr>
+            </tbody>
+        </table>
+    -->
+    </div>
+</div>
+
+<div class="portlet box blue">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>交易日志</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th class="numeric">序号</th>
+					<th>消息</th>
+					<th>日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in messages">
+					<td class="numeric">{{$index + 1}}</td>
+					<td>{{item.Message}}</td>
+					<td>{{item.Date}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

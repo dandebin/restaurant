@@ -1,0 +1,94 @@
+<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+									<thead>
+				 							<th class="hidden-480" >
+								               {{"merchant_edit_code"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_merchant_name"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_clr_date"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_clr_count"| translate }}
+								            </th>
+									        <th >
+									            {{"clr_tran_amount"| translate }}
+									        </th>
+                                            <th >
+								                {{"clr_writeoff_count"| translate }}
+								            </th>
+								            <th >
+								                {{"clr_writeoff_amount"| translate }}
+								            </th>
+									        <th class="hidden-480">
+									            {{"clr_refund_count"| translate }}
+									        </th>
+                                            <th class="hidden-480" >
+								                {{"clr_refund_amount"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_fee"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_clr_currency"| translate }}
+								            </th>
+									        <th >
+									            {{"clr_clr_amount"| translate }}
+									        </th>
+                                        	<th >
+								                {{"reconcile_isSealed"| translate }}
+								            </th>
+								             <th class="hidden-480" data-title="'操作'">
+								              	 {{"common_btn_option"| translate }}
+								            </th>							
+									</thead>
+									<tbody>								
+										<tr ng-repeat="item in $data">
+								            <td class="hidden-480">
+								                {{item.MerchantCode}}
+								            </td>
+								            <td >
+								                {{item.MerchantDesc}}
+								            </td>
+								            <td class="hidden-480" >
+								                {{item.ReconcileDate | dateFormat}}
+								            </td>
+								            <td class='number2'>
+								                {{item.TranCount}}
+								            </td>
+										    <td class='number2'>
+										        {{item.TranAmount}}
+										    </td>
+                                            <td class='number2'>
+								                {{item.WriteOffCount}}
+								            </td>
+								            <td class='number2'>
+								                {{item.WriteOffAmount}}
+								            </td>
+										    <td class="number2 hidden-480">
+										        {{item.RefundCount}}
+										    </td>
+                                            <td class="number2 hidden-480" >
+								                {{item.RefundAmount}}
+								            </td>
+								            <td class="number2 hidden-480" >
+								                {{item.MerchantFee}}
+								            </td>
+								            <td class="hidden-480" >
+								                {{item.RefundCurrencyCode}}
+								            </td>
+										    <td class='number2'>
+										        {{item.ReconcileAmount}}
+										    </td>
+                                            <td class='number2' >
+								                {{item.IsSealed | isSealed | translate}}
+								            </td>
+								             <td class="hidden-480" >
+								               <a ng-click='onDownload(item)' class='btn' style="width: 90px;"><i class="icon-download"></i>{{"common_btn__download"| translate }}</a>
+
+								              <a ng-if="!item.IsSealed" ng-click='onSealed(item)' class='btn' style="margin-top: 2px; width: 90px;"><i class="icon-paperclip"></i> {{"reconcile_seal"| translate }}</a>
+								            </td>
+										</tr>
+									</tbody>							      
+</table>

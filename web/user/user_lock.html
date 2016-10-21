@@ -1,0 +1,62 @@
+	<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box blue">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>账户冻结</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form action="#" class="form-horizontal">
+									<div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										{{errorMessage}}
+									</div>
+
+									<div ng-show='isSuccess' class="alert alert-success">
+										操作已成功
+									</div>
+
+									<div class="control-group">
+
+										<label class="control-label">冻结用户</label>
+
+										<div class="controls">
+											<input class="span6 m-wrap" type="text" ng-model='username' disabled/>
+											<span class="help-inline"></span>
+
+										</div>
+
+									</div>
+									<div class="form-actions">
+
+										<a ng-click='changeUserStatus(true)' type="submit" class="btn blue">确认冻结</a> 
+										<a ng-click='changeUserStatus(false)' type="submit" class="btn">取消冻结</a>                          
+									</div>
+
+								</form>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+
+					</div>
+
+				</div>

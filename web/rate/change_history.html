@@ -1,0 +1,167 @@
+<div class="row-fluid">
+
+    <div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+
+        <div class="portlet box grey">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-reorder"></i>{{"rate_history_query"|translate}}</div>
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="#" class="horizontal-form">
+
+                    <!--/row-->
+
+                    <div class="row-fluid">
+
+                        <div class="span3 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="rateFromTime">{{"rate_date_start"|translate}}</label>
+                                <div class="controls">
+                                    <div class="rateFromTime input-append date form_datetime">
+                                        <input data-format="yyyy-MM-dd" type="text" value="" readonly class="m-wrap span12" ng-model='rateFromTime' id="rateFromTime">
+                                        <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--/span-->
+
+
+
+                        <div class="span3 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="rateToTime">{{"rate_date_end"|translate}}</label>
+
+                                <div class="controls">
+                                    <div class="rateToTime input-append date form_datetime">
+                                        <input data-format="yyyy-MM-dd" type="text" value="" readonly class="m-wrap span12" ng-model='rateToTime' id="rateToTime">
+                                        <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!--/span-->
+
+                             <div class="span3 ">
+
+														<div class="control-group">
+
+															<label class="control-label" for="applicant">{{"refund_query_applicant"| translate }}</label>
+
+															<div class="controls">
+
+																<input name='applicant' type="text" id="applicant" class="m-wrap span12" placeholder="" ng-model='applicant' ng-maxlength='20'>
+
+																<span class="error help-block"></span>
+															</div>
+
+														</div>
+
+													</div>
+
+                                                     <div class="span3">
+
+														<div class="control-group">
+
+															<label class="control-label" for="approval">{{"refund_query_approval"| translate }}</label>
+
+															<div class="controls">
+
+																<input name='approval' type="text" id="approval" class="m-wrap span12" placeholder="" ng-model='approval' ng-maxlength='20'>
+
+																<span class="error help-block"></span>
+															</div>
+
+														</div>
+
+													</div>
+                    </div>
+
+                    <!--/row-->
+
+                    <div class="row-fluid">
+
+                        <a ng-click='onQueryRate()' type="submit" class="btn grey"><i class="icon-search"></i>{{"common_btn__query"|translate}}</a>
+                    </div>
+
+                </form>
+
+                <!-- END FORM-->              
+            </div>
+
+        </div>
+
+
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+        <div class="portlet box grey">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-list-alt"></i>{{"rate_history_title"|translate}}</div>
+            </div>
+
+            <div class="portlet-body">
+                <div ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+                    {{errorMessage}}
+                </div>
+                <table ng-table="tableParams" class="table table-striped table-bordered table-hover">                  
+                    <tr ng-repeat="item in $data">
+		                                <td data-title="titles['CreatedDatetime']" sortable="'CreatedDatetime'">
+			                               {{item.CreatedDatetime}}
+		                                </td>
+		                                <td data-title="titles['OriginalCurrencyName']" sortable="'OriginalCurrencyName'">
+			                                {{item.OriginalCurrencyName}}
+		                                </td>
+		                                <td data-title="titles['CurrencyName']" sortable="'CurrencyName'">
+			                                {{item.CurrencyName}}
+		                                </td>
+		                                <td class="number2 hidden-480" data-title="titles['Rate']" sortable="'Rate'">
+			                                	1:{{item.Rate|toFixedFilter}}
+		                                </td>
+		                                <td class="hidden-480" data-title="titles['IsVerified']" sortable="'IsVerified'">
+			                               <span class="label label-success">{{item.IsVerified|rateVerifyStatusFilter}}</span>
+		                                </td>
+		                                <td data-title="titles['Applicant']" sortable="'Applicant'">
+			                                 {{item.Applicant}}
+		                                </td>
+                                        <td data-title="titles['Approval']" sortable="'Approval'">
+			                                {{item.Approval}}
+		                                </td>
+                                        <td data-title="titles['ApprovalTime']" sortable="'ApprovalTime'">
+			                                {{item.ApprovalTime}}
+		                                </td>		                              
+	                                </tr>
+                </table>
+				 <div class="row-fluid">
+                    <a ng-click='onDownLoadHistoryRate()' class="btn grey"><i class="icon-download"></i>{{"common_btn__download"|translate}}</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- END EXAMPLE TABLE PORTLET-->
+
+    </div>
+
+</div>

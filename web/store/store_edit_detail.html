@@ -1,0 +1,84 @@
+<!-- Modal -->
+<div style='display:none' class="modal modal-small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<form name='updateStoreForm' action="#" class="form-horizontal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h3 class="modal-title" style='text-align:center' id="myModalLabel">{{"merchant_edit_title"| translate }}</h3>
+      </div>
+      <div class="modal-body form-horizontal">
+          	<div  ng-show='!isSuccess && errMessage.length>0' class="alert alert-error">
+										{{errMessage}}
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="merchantDesc">{{"merchant_new_name"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='merchantDesc' class="span6 m-wrap" id="merchantDesc" type="text"  ng-model='storeInfo.MerchantDesc' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.merchantDesc.$error.required || (updateStoreForm.merchantDesc.$dirty && updateStoreForm.merchantDesc.$invalid)' class="error help-inline">{{"merchant_new_name_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="merchantStatus">{{"merchant_new_status"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+                                            <select class="span6 m-wrap" type="select" id="merchantStatus" ng-model='storeInfo.MerchantStatus' ng-options="option.id as option.name for option in statusDic">
+											</select>                                     
+										</div>
+									</div>
+		
+									<div class="control-group">
+										<label class="control-label" for="merchantTelephone">{{"merchant_new_tel"| translate }}</label>
+										<div class="controls">
+											<input name='MerchantTelephone' class="span6 m-wrap" type="text" id="merchantTelephone" ng-model='storeInfo.MerchantTelephone' ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.MerchantTelephone.$dirty && updateStoreForm.MerchantTelephone.$invalid' class="error help-inline">{{"merchant_new_tel_error"| translate }}</span>
+											
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="swiftCode">{{"merchant_new_swift"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='SwiftCode' class="span6 m-wrap" type="text" id="swiftCode" ng-model='storeInfo.SwiftCode' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.SwiftCode.$error.required || (updateStoreForm.SwiftCode.$dirty && updateStoreForm.SwiftCode.$invalid)' class="error help-inline">{{"merchant_new_swift_error"| translate }}</span>
+										</div>
+									</div>
+					
+									<div class="control-group">
+										<label class="control-label" for="pickupUrl">{{"merchant_new_pickup_url"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='PickupUrl' class="span6 m-wrap" type="text" id="pickupUrl" ng-model='storeInfo.PickupUrl' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.PickupUrl.$error.required || (updateStoreForm.PickupUrl.$dirty && updateStoreForm.PickupUrl.$invalid)' class="error help-inline">{{"merchant_new_pickup_url_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="receiveUrl">{{"merchant_new_return_url"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='ReceiveUrl' class="span6 m-wrap" type="text" id="receiveUrl" ng-model='storeInfo.ReceiveUrl' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.ReceiveUrl.$error.required || (updateStoreForm.ReceiveUrl.$dirty && updateStoreForm.ReceiveUrl.$invalid)' class="error help-inline">{{"merchant_new_return_url_error"| translate }}</span>
+										</div>
+									</div>
+			
+									<div class="control-group">
+										<label class="control-label" for="merchantToken">{{"merchant_new_key"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='MerchantToken' class="span6 m-wrap" type="text" id="merchantToken" ng-model='storeInfo.MerchantToken' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.MerchantToken.$error.required || (updateStoreForm.MerchantToken.$dirty && updateStoreForm.MerchantToken.$invalid)' class="error help-inline">{{"merchant_new_key_error"| translate }}</span>
+										</div>
+									</div>
+      </div>
+      <div class="modal-footer">
+      	<div class="control-group">
+			<label class="control-label"></label>
+				<div class="controls">
+					<button ng-disabled="!updateStoreForm.$valid" type="button" class="btn btn-default" ng-click='onUpdateDetail(storeInfo)'><i class="icon-save"></i>{{"common_btn_save"| translate }}</button>
+        			<button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>{{"common_btn_close"| translate }}</button>
+				</div>
+
+		</div>
+      </div>
+    </div>
+  </div>
+ </form>
+</div>

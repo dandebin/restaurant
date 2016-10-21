@@ -1,0 +1,122 @@
+<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>{{"refund_add_title"| translate }}</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form name="addRefundForm" action="#" class="form-horizontal">
+									<div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										{{errorMessage}}
+									</div>
+
+									<div ng-show='isSuccess' class="alert alert-success">
+										{{"common_msg_option"| translate }}
+									</div>
+
+
+									<div class="control-group">
+
+															<label class="control-label" for="merchantCode">{{"refund_add_merchant"| translate }}<font color="red">*</font></label>
+
+															<div class="controls">
+
+																<select  class="m-wrap span6" ng-model='refund.merchantCode' ng-blur="padOrder($event)" id="merchantCode">
+																	<option ng-repeat='item in merchants' value="{{item.MerchantCode}}">{{item.MerchantDesc}}</option>
+																</select>
+
+																<span class="help-block"></span>
+
+															</div>
+
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="refundOrderNo">{{"refund_add_order_no"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='refundOrderNo' class="span6 m-wrap" type="text"  ng-model='refund.refundOrderNo' required ng-maxlength='20' ng-blur="padOrder($event)" id="refundOrderNo"/>
+											<span ng-show='addRefundForm.refundOrderNo.$error.required' class="error help-inline">{{"refund_add_order_no_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="orderCurrencyCode">{{"refund_query_productcurrency"| translate }}</label>
+										<div class="controls">
+											<input readonly class="span6 m-wrap" type="text"  ng-model='orderInfo.OrderCurrencyCode' id="orderCurrencyCode"/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="orderExchangeRate">{{"refund_add_rate"| translate }}</label>
+										<div class="controls">
+											<input readonly class="span6 m-wrap" type="text"  ng-model='orderInfo.OrderExchangeRate' id="orderExchangeRate"/>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="orderAmount">{{"refund_add_amount"| translate }}</label>
+										<div class="controls">
+											<input readonly class="span6 m-wrap" type="text"  ng-model='orderInfo.OrderAmount' id="orderAmount"/>
+										</div>
+									</div>							
+									<div class="control-group">
+
+										<label class="control-label" for="refundCurrencyId">{{"refund_add_refund_currency"| translate }}<font color="red">*</font></label>
+
+										<div class="controls">
+
+											<select name='refundCurrencyId' class="m-wrap span6"  ng-model='refundCurrencyId' required id="refundCurrencyId">
+													<option ng-repeat='cur in currencies' value={{cur.CurrencyId}}>{{cur.CurrencyDesc}}</option>																	
+											</select>
+											<span ng-show='addRefundForm.refundCurrencyId.$dirty && addRefundForm.refundCurrencyId.$invalid' class="error help-inline">{{"refund_add_refund_currency_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="refundAmount">{{"refund_add_refund_amount"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='refundAmount' class="span6 m-wrap" type="text"  ng-model='refund.refundAmount' required id="refundAmount"/>
+											<span ng-show='addRefundForm.refundAmount.$error.required' class="error help-inline">{{"refund_add_amount_error"| translate }}</span>
+										</div>
+									</div>
+									
+									<div class="control-group">
+										<label class="control-label" for="refundMemo">{{"refund_add_memo"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<textarea name='refundMemo' class="span6 m-wrap" type="text"  ng-model='refund.refundMemo' required id="refundMemo"/>
+											<span ng-show='addRefundForm.refundMemo.$error.required' class="error help-inline">{{"refund_add_memo_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="row-fluid">
+										<a ng-disabled="!addRefundForm.$valid" ng-click='onSubmit()' class="btn grey"><i class="icon-save"></i>{{"common_btn_save"| translate }}</a>
+									</div>
+
+								</form>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+						
+						
+					</div>
+
+				</div>

@@ -1,0 +1,184 @@
+<div class="row-fluid">
+
+    <div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+        <div class="portlet box grey">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-reorder"></i>{{"tran_his_query"| translate }}</div>
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="#" class="horizontal-form">
+
+                    <div class="row-fluid">
+
+                        <div class="span4 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="orderId">{{"tran_order_id"| translate }}</label>
+
+                                <div class="controls">
+
+                                    <input type="text" id="orderId" class="m-wrap span12" placeholder="" ng-model='orderNo'>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="span4 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="status">{{"tran_status"| translate }}</label>
+
+                                <div class="controls">
+
+                                    <select class="m-wrap span12" ng-model='status' id="status">
+                                        <option value="-1">All</option>
+                                        <option value="0">Pending</option>
+                                        <option value="1">Posted</option>
+                                        <option value="2">Declined</option>
+                                    </select>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span4">
+
+							<div class="control-group">
+
+								<label class="control-label" for="merchantuserId">{{"user_edit_name"| translate }}</label>
+
+								<div class="controls">
+
+									<select  class="m-wrap span12" ng-model='merchantuserId' id="merchantuserId">
+										<option value='' selected>{{"common_btn_all"| translate }}</option>
+										<option ng-repeat='item in users' value="{{item.UserId}}">{{item.UserName}}</option>
+									</select>
+
+									<span class="help-block"></span>
+
+								</div>
+
+							</div>
+
+						</div>               
+                        <!--/span-->
+                    </div>
+                    <div class="row-fluid">
+                        <!--/span-->
+                        <div class="span4 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="orderFromTime">{{"tran_order_from"| translate }}</label>
+                                <div class="controls">
+                                    <div class="orderFromTime input-append date form_datetime">
+                                        <input type="text" ng-model='orderFromTime' style='height: 24px' id="orderFromTime">
+                                        <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="span4 ">
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="orderToTime">{{"tran_order_to"| translate }}</label>
+
+                                <div class="controls">
+                                    <div class="orderToTime input-append date form_datetime">
+                                        <input type="text" ng-model='orderToTime' style='height: 24px' id="orderToTime">
+                                        <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span4" ng-hide='userInfo.roleId==4'>
+
+                            <div class="control-group">
+
+                                <label class="control-label" for="merchantId">{{"tran_merchant"| translate }}</label>
+
+                                <div class="controls">
+
+                                    <select class="m-wrap span12" ng-model='merchantId' id="merchantId">
+                                        <option value=''>{{"tran_merchant_all"| translate }}</option>
+                                        <option ng-repeat='item in merchants' value="{{item.MerchantId}}">{{item.MerchantDesc}}</option>
+                                    </select>
+
+                                    <span class="help-block"></span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <a ng-click='onQueryHistory()' class="btn grey"><i class="icon-search"></i>{{"common_btn__query"| translate }}</a>
+                    </div>                   
+                </form>
+
+                <!-- END FORM-->
+
+            </div>          
+        </div>
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+        <div class="portlet box grey">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-list-alt"></i>{{"tran_his_title"| translate }}</div>
+            </div>
+
+            <div class="portlet-body">
+                <div ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+                    {{errorMessage}}
+                </div>
+              <!--  <span style="display:block;float:left;">{{"tran_memo"| translate }}</span>-->
+                 <div class="row-fluid">
+                        <a ng-click='onDownLoadQueryHistory()' class="btn grey downloadbtn"><i class="icon-download"></i>{{"common_btn__download"| translate }}</a>
+                    </div>
+                <div ng-include="'transaction/transaction_list.html'"></div>
+            </div>
+        </div>
+
+        <!-- END EXAMPLE TABLE PORTLET-->
+
+    </div>
+
+</div>
+
+
+<div ng-include="'transaction/transaction_detail.html'"></div>

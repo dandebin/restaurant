@@ -1,0 +1,57 @@
+<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+		<thead>
+
+											<tr>
+												<th>{{"merchant_edit_code"| translate }}</th>
+                                                <th>{{"user_edit_name"| translate }}</th>
+												<th>{{"refund_query_status"| translate }}</th>
+												<th>{{"refund_query_currency"| translate }}</th>
+												<th>{{"refund_query_amount"| translate }}</th>
+												<th>{{"refund_query_date"| translate }}</th>
+                                                <th>{{"refund_add_memo"| translate }}</th>
+                                                <th>{{"refund_query_applicant"| translate }}</th>
+                                                <th>{{"refund_query_approval"| translate }}</th>
+                                                <th>{{"refund_query_approvaltime"| translate }}</th>
+												<th ng-show='canEdit'>{{"common_btn_option"| translate }}</th>
+											</tr>
+
+	</thead>
+	<tbody>								
+								        <tr ng-repeat="item in $data">
+								            <td class="hidden-480" >
+								               {{item.MerchantCode}}
+								            </td>
+                                             <td class="hidden-480" >
+								               {{item.UserName}}
+								            </td>
+								            <td class="hidden-480" >
+								               {{item.RefundStatus}}
+								            </td>
+								            <td class="hidden-480" >
+								                USD
+								            </td>
+								             <td class="number2 hidden-480" >
+								                {{item.RefundAmount}}
+								            </td>
+								            <td  class="hidden-480">
+								               {{item.RefundDatetime|dateFormatFilter}}
+								            </td>
+                                             <td  class="hidden-480">
+								               {{item.RefundMemo}}
+								            </td>
+                                             <td  class="hidden-480">
+								               {{item.Applicant}}
+								            </td>
+                                              <td  class="hidden-480">
+								               {{item.Approval}}
+								            </td>
+                                              <td  class="hidden-480">
+								               {{item.ApprovalTime}}
+								            </td>
+								            <td ng-show='canEdit'>
+								               <a ng-if='item.RefundStatus=="提交申请" || item.RefundStatus=="Submit application"' ng-click='onApprove(item,4)' class='btn'><i class="icon-ok-sign"></i>{{"common_btn_pass"| translate }}<a/>
+								               <a ng-if='item.RefundStatus=="提交申请" || item.RefundStatus=="Submit application"' ng-click='onApprove(item,5)' class='btn'><i class="icon-remove-sign"></i>{{"common_btn_reject"| translate }}<a/>
+								            </td>
+								        </tr>
+	</tbody>
+</table>

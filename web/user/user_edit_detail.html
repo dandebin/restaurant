@@ -1,0 +1,75 @@
+﻿<!-- Modal -->
+<div style='display:none' class="modal modal-small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<form name='updateUserForm' action="#" class="form-horizontal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h3 class="modal-title" style='text-align:center' id="myModalLabel">{{"user_edit_tag"| translate }}</h3>
+      </div>
+      <div class="modal-body form-horizontal">
+          	<div  ng-show='!isSuccess && errMessage.length>0' class="alert alert-error">
+										{{errMessage}}
+									</div>								
+                                    <div class="control-group">
+										<label class="control-label" style="vertical-align:-2px;" for="isLocked">{{"user_new_islocked" | translate}}</label>
+										<div class="controls">
+											<input type='checkbox' ng-model="userData.IsLocked" id="isLocked" style="margin-bottom:-9px;" ng-disabled='!isSys && userData.UserId!=userInfo.userId'><span style="vertical-align: -9px;">{{"user_edit_status_1"| translate }}</span></input>										
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="userAccountBank">{{"user_new_bank_name"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='UserAccountBank' class="span6 m-wrap" type="text" id="userAccountBank" ng-model='userData.UserAccountBank' required ng-maxlength='50' ng-disabled='!isSys && userData.UserId!=userInfo.userId'/>
+											<span ng-show='(isSys || userData.UserId==userInfo.userId) && (updateUserForm.UserAccountBank.$error.required || (updateUserForm.UserAccountBank.$dirty && updateUserForm.UserAccountBank.$invalid))' class="error help-inline">{{"user_new_bank_name_error"| translate }}</span>
+										</div>
+									</div>
+					
+									<div class="control-group">
+										<label class="control-label" for="userAccountNo">{{"user_new_bank_no"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='UserAccountNo' class="span6 m-wrap" type="text" id="userAccountNo" ng-model='userData.UserAccountNo' required ng-maxlength='20' ng-disabled='!isSys && userData.UserId!=userInfo.userId'/>
+											<span ng-show='(isSys || userData.UserId==userInfo.userId) && (updateUserForm.UserAccountNo.$error.required || (updateUserForm.UserAccountNo.$dirty && updateUserForm.UserAccountNo.$invalid))' class="error help-inline">{{"user_new_bank_no_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="userAccountName">{{"user_new_account_name"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='UserAccountName' class="span6 m-wrap" type="text" id="userAccountName" ng-model='userData.UserAccountName' required ng-maxlength='20' ng-disabled='!isSys && userData.UserId!=userInfo.userId'/>
+											<span ng-show='(isSys || userData.UserId==userInfo.userId) && (updateUserForm.UserAccountName.$error.required || (updateUserForm.UserAccountName.$dirty && updateUserForm.UserAccountName.$invalid))' class="error help-inline">{{"user_new_account_name_error"| translate }}</span>
+										</div>
+									</div>
+				
+									<div class="control-group">
+										<label class="control-label" for="userSettlementPeriod">{{"user_new_t"| translate }}</label>
+										<div class="controls">
+											<select class="span6 m-wrap" type="select" ng-model='userData.UserSettlementPeriod' id="userSettlementPeriod" ng-options="option.value as option.name for option in ts" ng-disabled='!isSys && userData.UserId!=userInfo.userId'>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="feevalue">{{"user_new_fee"| translate }} <font color="red">*</font></label>
+										<div class="controls">
+											<input name='Feevalue' class="span6 m-wrap" type="number" id="feevalue" ng-model='userData.Feevalue' required ng-maxlength='20' ng-disabled='!isSys'/>
+											<span ng-show='updateUserForm.Feevalue.$error.required || (updateUserForm.Feevalue.$dirty && updateUserForm.Feevalue.$invalid)' class="error help-inline">{{"user_new_fee_error"| translate }}</span>
+										</div>
+
+									</div>
+      </div>
+      <div class="modal-footer">
+      	<div class="control-group">
+			<label class="control-label"></label>
+				<div class="controls">
+					<button ng-disabled="!updateUserForm.$valid" type="button" class="btn btn-default" ng-click='onUpdateDetail(userData)' ng-hide='!isSys && userData.UserId!=userInfo.userId'><i class="icon-save"></i>{{"common_btn_save"| translate }}</button>
+        			<button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>{{"common_btn_close"| translate }}</button>
+				</div>
+
+		</div>
+      </div>
+    </div>
+  </div>
+ </form>
+</div>

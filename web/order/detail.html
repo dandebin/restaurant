@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>GoldenMerry | Login Page</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<meta content="" name="description" />
+
+	<meta content="" name="author" />
+
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+	<link href="../media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/style.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+	<link href="../media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+	<link href="../media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+	<!-- END GLOBAL MANDATORY STYLES -->
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+
+	<link href="../media/css/login.css" rel="stylesheet" type="text/css"/>
+
+	<link rel="stylesheet" type="text/css" href="../shared/css/custom.css" />
+	<!-- END PAGE LEVEL STYLES -->
+
+	<link rel="shortcut icon" href="../media/image/favicon.ico" />
+
+	<!---angular & bootstrap-->
+	<script src="../media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="../media/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<script src="../shared/lib/bootstrap-datetimepicker-0.0.11/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+
+	<script src="../shared/lib/angular-1.4.2.js" type="text/javascript"></script>
+	<script src="../shared/lib/angular-route-1.4.2.js" type="text/javascript"></script>
+
+	<!--ng-table -->
+	<script src="../shared/lib/ng-table-0.5.3/ng-table.min.js" type="text/javascript"></script>
+	<script src="../shared/lib/ng-table-0.5.3/ng-table-export.src.js" type="text/javascript"></script>
+	<script src="../shared/lib/ng-table-0.5.3/angular-resource.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../shared/lib/ng-table-0.5.3/ng-table.min.css" />
+	<link rel="stylesheet" href="../shared/lib/ng-table-0.5.3/ng-table-custom.min.css" />
+
+	<!--validation-->
+	<script src="../shared/lib/jquery-validation-1.14.0/jquery.validate.js" type="text/javascript"></script>
+	<script src="../shared/lib/jquery-validation-1.14.0/additional-methods.js" type="text/javascript"></script>
+
+	<!--translate-->
+	<script src="../shared/lib/i18n/angular-translate-2.7.1.js"></script>
+	<script src="../shared/lib/i18n/angular-translate-loader-static-files-2.7.2.js"></script>
+	<script src="../shared/lib/i18n//angular-sanitize-1.4.2.js"></script>
+
+	<!--storage-->
+	<script src="../shared/lib/ngStorage-0.3.6.min.js"></script>
+	<script src="../shared/lib/jquery.cookie-1.4.1.js"></script>
+
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="login" ng-app='app'>
+
+	<!-- BEGIN LOGO -->
+
+	<div class="logo">
+
+		<img src="../media/image/logo-greendot.png" alt="" /> 
+
+	</div>
+
+	<!-- END LOGO -->
+
+	<!-- BEGIN LOGIN -->
+
+	<div class="content" ng-controller='loginAdminCtrl'>
+
+		<!-- BEGIN LOGIN FORM -->
+
+		<form name='loginForm' class="form-vertical login-form" action="../main/admin.html">
+
+			<h3 class="form-title">Welcome to XXX restaurant</h3>
+			
+			<div class="alert alert-error hide">
+
+				<span>{{errMsg}}</span>
+
+			</div>
+
+			
+
+			<div class="control-group">
+
+				<label class="control-label visible-ie8 visible-ie9">{{"login_lbl_user"| translate }}</label>
+
+				<div class="controls">
+
+					<div class="input-icon left">
+
+						<i class="icon-user"></i>
+
+						<input ng-model='amount' class="m-wrap placeholder-no-fix" type="text"  placeholder='支付金额' name="userName" ng-maxlength='20' required disableddisabled/>
+						<span ng-show='loginForm.userName.$dirty && loginForm.userName.$invalid' class="error help-inline">{{"login_error_user"| translate }}</span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="control-group">
+
+				<label class="control-label visible-ie8 visible-ie9">{{"login_lbl_user"| translate }}</label>
+
+				<div class="controls">
+
+					<div class="input-icon left">
+
+						<i class="icon-user"></i>
+
+						<input ng-model='discount' class="m-wrap placeholder-no-fix" type="text"  placeholder='88%折扣' name="userName" ng-maxlength='20' disabled required/>
+						<span ng-show='loginForm.userName.$dirty && loginForm.userName.$invalid' class="error help-inline">{{"login_error_user"| translate }}</span>
+					</div>
+
+				</div>
+
+			</div>
+			
+			<div class="control-group">
+
+				<label class="control-label visible-ie8 visible-ie9">{{"login_lbl_password"| translate }}</label>
+
+				<div class="controls">
+
+					<div class="input-icon left">
+
+						<i class="icon-lock"></i>
+
+						<input ng-model='amount2' class="m-wrap placeholder-no-fix" type="text"  placeholder='折后金额' name="userName" ng-maxlength='20' required disabled/>
+						<span ng-show='loginForm.userName.$dirty && loginForm.userName.$invalid' class="error help-inline">{{"login_error_user"| translate }}</span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class='control-group'>
+				<a class="btn green pull-left" ng-click='login()'>支付<i class="m-icon-swapright m-icon-white"></i></a>
+			</div>
+			<br/>
+
+			<br/>
+
+		</form>
+
+		<!-- END LOGIN FORM -->        
+
+	</div>
+
+	<!-- END LOGIN -->
+
+	<!-- BEGIN COPYRIGHT -->
+
+	<div class="copyright">
+
+	</div>
+
+	<!-- END COPYRIGHT -->
+
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="../shared/common.js" type="text/javascript"></script> 
+	<script src="../shared/config.js" type="text/javascript"></script> 
+	<script src="../shared/service.js" type="text/javascript"></script> 
+	<script src="../shared/directive.js" type="text/javascript"></script> 
+	<script src="../shared/filter.js" type="text/javascript"></script> 
+	<script src="../shared/rootController.js" type="text/javascript"></script> 
+
+	<script src="bl_order.js" type="text/javascript"></script>
+	<script>
+
+		jQuery(document).ready(function() {     
+
+		  //App.init();
+
+		  //Login_Admin.init();
+		 });
+	</script>
+
+	<!-- END JAVASCRIPTS -->
+
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+
+<!-- END BODY -->
+
+</html>

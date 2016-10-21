@@ -1,0 +1,68 @@
+html body {
+	font-family: "Times New Roman",Georgia,Serif !important;	
+}
+
+table,td{
+	text-align: center !important;
+}
+
+.number2{
+	text-align: right !important;
+}
+  
+.page-title{
+	font-family: "Times New Roman",Georgia,Serif !important;
+}
+
+.portlet-body{
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.error{
+	color:red
+}
+
+.tdspan2{
+	width: 20px;
+}
+
+.tdspan4{
+	width: 40px;
+}
+
+.tdspan6{
+	width: 60px;
+}
+
+.tdspan8{
+	width: 80px;
+}
+
+.tdspan10{
+	width: 100px;
+}
+
+.tdspan12{
+	width: 120px;
+}
+
+.modal{
+	  width: 90%;
+	  left: 0;
+	  margin: 5%;
+}
+
+.modal-small{
+	  width: 50%;
+	  left: 0;
+	  margin: 20%;
+}
+.imgwelcome {
+    height:auto; 
+    width:100%; 
+    border:0;
+}
+.downloadbtn {
+    display:block;float:right; 
+}

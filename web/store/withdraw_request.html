@@ -1,0 +1,67 @@
+<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>提现申请</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form action="#" class="form-horizontal">
+
+									<div class="control-group" ng-repeat='item in requestInfoitems'>
+
+										<label class="control-label">{{item.name}}</label>
+
+										<div class="controls">
+											<input class="span6 m-wrap" type="text" disabled ng-model='item.value'/>
+
+											<span class="help-inline"></span>
+
+										</div>
+
+									</div>
+									<div class="control-group">
+
+										<label class="control-label">申请提现金额</label>
+
+										<div class="controls">
+											<input class="span6 m-wrap" type="text" placeholder='请输入提现申请金额' ng-model='requestValue'/>
+
+											<span class="help-inline"></span>
+
+										</div>
+
+									</div>
+
+									<div class="form-actions">
+
+										<button type="submit" class="btn blue">提交</button>
+
+										<button type="button" class="btn">重置</button>                            
+
+									</div>
+
+								</form>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+
+					</div>

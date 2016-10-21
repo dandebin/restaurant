@@ -1,0 +1,49 @@
+<div class="page-sidebar nav-collapse collapse">
+
+			<!-- BEGIN SIDEBAR MENU -->        
+
+			<ul class="page-sidebar-menu">
+
+				<li class="start active ">
+
+					<a ng-click='onClickSubFeature({Name: "Dashboard"}, {Name:null, Url:"#/main/dashboard"})'>
+
+					<i class="icon-home"></i> 
+
+					<span class="title">{{"sidebar_lbl_main"| translate }}</span>
+
+					<span class="selected"></span>
+
+					</a>
+
+				</li>
+
+				<li class="open" ng-repeat='feature in features'>
+
+					<a href="javascript:;">
+
+					<i class='{{featureIcons[$index]}}'></i> 
+
+					<span class="title">{{feature.Name}}</span>
+
+					<span class="arrow open" ng-click="toggleNode(this)"></span>
+
+					</a>
+
+					<ul class="sub-menu" style="display: block;">
+
+						<li ng-repeat='subFeature in feature.SubFeatures'>
+
+							<a style='cursor: pointer;' ng-click='onClickSubFeature(feature, subFeature)'>
+
+							{{subFeature.Name}}</a>
+
+						</li>
+					</ul>
+
+				</li>
+			</ul>
+
+			<!-- END SIDEBAR MENU -->
+
+		</div>

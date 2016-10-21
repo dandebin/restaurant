@@ -1,0 +1,111 @@
+<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>{{"merchant_new_title"| translate }}</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse" ng-click="togNode()"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form name="addStoreForm" action="#" class="form-horizontal">
+									<div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										{{errorMessage}}
+									</div>
+
+									<div ng-show='isSuccess' class="alert alert-success">
+										{{"merchant_new_success"| translate }}
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="merchantDesc">{{"merchant_new_name"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='merchantDesc' id="merchantDesc" class="span6 m-wrap" type="text"  ng-model='basicInfo.MerchantDesc' required ng-maxlength='50'/>
+											<span ng-show='addStoreForm.merchantDesc.$error.required || (addStoreForm.merchantDesc.$dirty && addStoreForm.merchantDesc.$invalid)' class="error help-inline">{{"merchant_new_name_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="merchantStatus">{{"merchant_new_status"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<select class="span6 m-wrap" id="merchantStatus" type="select"  ng-model='basicInfo.MerchantStatus'>
+												<option value='1' selected="selected">{{"merchant_new_status_1"| translate }}</option>
+												<option value='2'>{{"merchant_new_status_2"| translate }}</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="merchantTelephone">{{"merchant_new_tel"| translate }}</label>
+										<div class="controls">
+											<input name='MerchantTelephone' class="span6 m-wrap" id="merchantTelephone" type="text"  ng-model='basicInfo.MerchantTelephone' ng-pattern="/^((\+?86)|(\(\+86\)))?\d{3,4}-\d{7,8}(-\d{3,4})?$|^((\+?86)|(\(\+86\)))?1\d{10}$/"/>
+											<span ng-show='addStoreForm.MerchantTelephone.$dirty && addStoreForm.MerchantTelephone.$invalid' class="error help-inline">{{"merchant_new_tel_error"| translate }}</span>
+											
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="swiftCode">{{"merchant_new_swift"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='SwiftCode' class="span6 m-wrap" type="text" id="swiftCode" ng-model='basicInfo.SwiftCode' required ng-maxlength='20'/>
+											<span ng-show='addStoreForm.SwiftCode.$error.required || (addStoreForm.SwiftCode.$dirty && addStoreForm.SwiftCode.$invalid)' class="error help-inline">{{"merchant_new_swift_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="pickupUrl">{{"merchant_new_pickup_url"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='PickupUrl' class="span6 m-wrap" type="text" id="pickupUrl" ng-model='basicInfo.PickupUrl' required ng-maxlength='100'/>
+											<span ng-show='addStoreForm.PickupUrl.$error.required || (addStoreForm.PickupUrl.$dirty && addStoreForm.PickupUrl.$invalid)' class="error help-inline">{{"merchant_new_pickup_url_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="returnUrl">{{"merchant_new_return_url"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='ReturnUrl' class="span6 m-wrap" type="text" id="returnUrl" ng-model='basicInfo.ReturnUrl' required ng-maxlength='100'/>
+											<span ng-show='addStoreForm.ReturnUrl.$error.required || (addStoreForm.ReturnUrl.$dirty && addStoreForm.ReturnUrl.$invalid)' class="error help-inline">{{"merchant_new_return_url_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="token">{{"merchant_new_key"| translate }}<font color="red">*</font></label>
+										<div class="controls">
+											<input name='Token' class="span6 m-wrap" type="text" id="token" ng-model='basicInfo.Token' required ng-maxlength='20'/>
+											<span ng-show='addStoreForm.Token.$error.required || (addStoreForm.Token.$dirty && addStoreForm.Token.$invalid)' class="error help-inline">{{"merchant_new_key_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="row-fluid">
+										<a ng-disabled="!addStoreForm.$valid" ng-click='onSubmit()' class="btn grey"><i class="icon-plus"></i>{{"merchant_new_add"| translate }}</a>
+
+									    <a ng-click='onReset()' type="button" class="btn"><i class="icon-remove"></i>{{"common_btn_rest"| translate }}</a> 
+									</div>
+
+								</form>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+						
+						
+					</div>
+
+				</div>

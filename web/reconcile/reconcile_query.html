@@ -1,0 +1,121 @@
+<div class="row-fluid">
+
+					<div class="span12 responsive" data-tablet="span12 fix-offset" data-desktop="span12">
+						<div class="portlet box grey">
+
+										<div class="portlet-title">
+
+											<div class="caption"><i class="icon-reorder"></i>{{"check_query "| translate }}</div>
+											<div class="tools">
+
+												<a href="javascript:;" class="collapse"></a>
+
+											</div>
+
+										</div>
+
+										<div class="portlet-body form">
+
+											<!-- BEGIN FORM-->
+
+											<form action="#" class="horizontal-form">                                               
+
+												<div class="row-fluid">
+													<div class="span4">
+
+														<div class="control-group">
+
+															<label class="control-label" for="reconcileFrom">{{"clr_date_from"| translate }}</label>
+															<div class="controls">
+																<div class="reconcileFrom input-append date form_datetime">
+																	<input type="text" style='height:24px' id="reconcileFrom">
+																	<span class="add-on"><i  data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+																</div>
+															</div>
+														</div>
+
+													</div>
+
+													<div class="span4">
+
+														<div class="control-group">
+
+															<label class="control-label" for="reconcileTo">{{"clr_date_to"| translate }}</label>
+
+															<div class="controls">
+
+																<div class="reconcileTo input-append date form_datetime">
+																	<input type="text" style='height:24px' id="reconcileTo">
+																	<span class="add-on"><i  data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>                                                                
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>			
+                                                    									
+                                                    <div class="span4 " ng-hide='userInfo.roleId==4'>
+
+														<div class="control-group">
+
+															<label class="control-label" for="merchantCode">{{"merchant_edit_code"| translate }}</label>
+
+															<div class="controls">
+
+																<select  class="m-wrap" ng-model='request.merchantCode' id="merchantCode">
+																	<option value='' selected>{{"common_btn_all"| translate }}</option>
+																	<option ng-repeat='item in merchants' value="{{item.MerchantCode}}">{{item.MerchantCode}}</option>
+																</select>
+
+																<span class="help-block"></span>
+
+															</div>
+
+														</div>
+
+													</div>
+													<!--/span-->
+												</div>
+
+												<!--/row-->
+
+												<div class="row-fluid">
+
+													<a  ng-click='onQuery()' type="submit" class="btn grey"><i class="icon-search"></i> {{"common_btn__query"| translate }}</a>
+												</div>
+
+											</form>
+
+											<!-- END FORM--> 
+
+										</div>
+
+						</div>
+
+
+						<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-list-alt"></i>{{"check_title"| translate }}</div>
+							</div>                           
+
+							<div class="portlet-body">		
+                            <div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+						        {{errorMessage}}
+					        </div>
+
+					        <div ng-show='isSuccess' class="alert alert-success">
+							        {{"common_msg_option"|translate}}
+					        </div>
+								<div ng-include="'reconcile/reconcile_list.html'"></div>
+							</div>
+						</div>
+
+						<!-- END EXAMPLE TABLE PORTLET-->
+
+					</div>
+
+</div>

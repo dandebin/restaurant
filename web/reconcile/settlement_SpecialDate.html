@@ -1,0 +1,26 @@
+﻿<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+									<thead>
+				 							<th class="hidden-480" >
+											     {{"clr_clr_date" | translate}}
+								            </th>
+								            <th >
+								               {{"clr_whetherSettlement" | translate}}
+								            </th>
+								            <th class="hidden-480" >
+								               {{"clr_status" | translate}}
+								            </th>						
+									</thead>
+									<tbody>								
+										<tr ng-repeat="item in $data">
+								            <td class="hidden-480">
+								                {{item.Date | dateFormat}}
+								            </td>
+								            <td >
+								                {{item.IsRun | isRun | translate}}
+								            </td>
+								            <td class="hidden-480" >
+								                {{item.Status | settlementDateStatus | translate}}
+								            </td>
+										</tr>
+									</tbody>							      
+</table>

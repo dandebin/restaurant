@@ -1,0 +1,89 @@
+﻿<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>{{"settlement_date_title"|translate}}</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form name="settlementDateForm" action="#" class="form-horizontal" role="form">
+									<div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										{{errorMessage}}
+									</div>
+
+									<div ng-show='isSuccess' class="alert alert-success">
+											{{"common_msg_option"|translate}}
+									</div>
+									<div class="row-fluid">
+									    <div class="span4">
+
+									        <label class="control-label" style="width:100px; margin-right: 20px;">{{"settlement_date_lbl_title"|translate}}</label>
+
+									        <div class="reconcileFrom input-append date form_datetime">
+									            <input type="text" style="width: 100px; height: 23px;" name="settlementDate1">
+									            <span class="add-on"><i  data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+									        </div>
+
+									    </div>
+
+									    <div class="span4">
+
+                                            <label class="control-label" style="width: 80px; margin-right: 20px;">{{"settlement_date_lbl_IsRun"|translate}}</label>
+									        <select id="isRun" class="m-wrap" style="width: 100px;">
+									            <option value="1" selected>{{"common_btn_run"|translate}}</option>
+									            <option value="0">{{"common_btn_notRun"|translate}}</option>
+									        </select>
+
+									    </div>
+
+									    <div class="span4">
+									        <div class="control-group">
+									                <a ng-click='onAdd()' class="btn grey"><i class="icon-plus"></i>{{ "common_btn_add" | translate }}</a>
+									        </div>
+									    </div>
+
+									</div>
+								</form>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+					    <!-- END SAMPLE FORM PORTLET-->
+
+                        <!-- BEGIN Settlement Date TABLE PORTLET-->
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-list-alt"></i>{{ "clr_specialSettlementDateList" | translate}}</div>
+							</div>
+
+							<div class="portlet-body">		
+								<div ng-include="'reconcile/settlement_SpecialDate.html'"></div>
+							</div>
+						</div>
+
+						<!-- END Settlement Date TABLE PORTLET-->
+
+
+					</div>
+
+				</div>

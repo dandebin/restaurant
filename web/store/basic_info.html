@@ -1,0 +1,136 @@
+<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN SAMPLE FORM PORTLET-->   
+                        	<div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+										{{errorMessage}}
+									</div>
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i>{{"merchant_edit_title_list"| translate }}</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+
+							</div>
+
+							<div class="portlet-body form" >
+
+								<!-- BEGIN FORM-->
+
+								<form action="#" class="form-horizontal">
+
+									<div class="control-group">
+										<label class="control-label">{{"user_add_merchant"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='merchantDesc' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantDesc' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.merchantDesc.$error.required || (updateStoreForm.merchantDesc.$dirty && updateStoreForm.merchantDesc.$invalid)' class="error help-inline">{{"merchant_new_name_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_status"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='merchantDesc' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantState' required ng-maxlength='50'/>
+											
+										</div>
+									</div>
+		
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_tel"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='MerchantTelephone' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantTelephone' ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.MerchantTelephone.$dirty && updateStoreForm.MerchantTelephone.$invalid' class="error help-inline">{{"merchant_new_tel_error"| translate }}</span>
+											
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_swift"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='SwiftCode' class="span6 m-wrap" type="text"  ng-model='storeInfo.SwiftCode' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.SwiftCode.$error.required || (updateStoreForm.SwiftCode.$dirty && updateStoreForm.SwiftCode.$invalid)' class="error help-inline">{{"merchant_new_swift_error"| translate }}</span>
+										</div>
+									</div>
+					
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_pickup_url"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='PickupUrl' class="span6 m-wrap" type="text"  ng-model='storeInfo.PickupUrl' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.PickupUrl.$error.required || (updateStoreForm.PickupUrl.$dirty && updateStoreForm.PickupUrl.$invalid)' class="error help-inline">{{"merchant_new_pickup_url_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_return_url"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='ReturnUrl' class="span6 m-wrap" type="text"  ng-model='storeInfo.ReceiveUrl' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.ReturnUrl.$error.required || (updateStoreForm.ReturnUrl.$dirty && updateStoreForm.ReturnUrl.$invalid)' class="error help-inline">{{"merchant_new_return_url_error"| translate }}</span>
+										</div>
+									</div>
+			
+									<div class="control-group">
+										<label class="control-label">{{"merchant_new_key"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='Key' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantToken' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.Key.$error.required || (updateStoreForm.Key.$dirty && updateStoreForm.Key.$invalid)' class="error help-inline">{{"merchant_new_key_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"user_new_bank_name"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='MerchantAccountBank' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantAccountBank' required ng-maxlength='50'/>
+											<span ng-show='updateStoreForm.MerchantAccountBank.$error.required || (updateStoreForm.MerchantAccountBank.$dirty && updateStoreForm.MerchantAccountBank.$invalid)' class="error help-inline">{{"merchant_new_bank_name_error"| translate }}</span>
+										</div>
+									</div>
+					
+									<div class="control-group">
+										<label class="control-label">{{"user_new_bank_no"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='MerchantAccountNo' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantAccountNo' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.MerchantAccountNo.$error.required || (updateStoreForm.MerchantAccountNo.$dirty && updateStoreForm.MerchantAccountNo.$invalid)' class="error help-inline">{{"merchant_new_bank_no_error"| translate }}</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"user_new_account_name"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='MerchantAccountName' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantAccountName' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.MerchantAccountName.$error.required || (updateStoreForm.MerchantAccountName.$dirty && updateStoreForm.MerchantAccountName.$invalid)' class="error help-inline">{{"merchant_new_account_name_error"| translate }}</span>
+										</div>
+									</div>
+				
+									<div class="control-group">
+										<label class="control-label">{{"user_new_t"| translate }}</label>
+										<div class="controls">
+											<input disabled='true'name='merchantDesc' class="span6 m-wrap" type="text"  ng-model='storeInfo.MerchantSettlementPeriodChar' required ng-maxlength='50'/>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label">{{"user_new_fee"| translate }} </label>
+										<div class="controls">
+											<input disabled='true'name='Feevalue' class="span6 m-wrap" type="number"  ng-model='storeInfo.Feevalue' required ng-maxlength='20'/>
+											<span ng-show='updateStoreForm.Feevalue.$error.required || (updateStoreForm.Feevalue.$dirty && updateStoreForm.Feevalue.$invalid)' class="error help-inline">{{"merchant_new_fee_error"| translate }}</span>
+										</div>
+
+									</div>
+
+								<!-- END FORM-->       
+
+							</div>
+
+						</div>
+
+						<!-- END SAMPLE FORM PORTLET-->
+
+					</div>
+
+
+</div>

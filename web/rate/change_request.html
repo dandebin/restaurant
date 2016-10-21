@@ -1,0 +1,165 @@
+<div class="row-fluid">
+
+					<div class="span12">
+
+						<div class="portlet box grey">
+
+										<div class="portlet-title">
+
+											<div class="caption"><i class="icon-reorder"></i>{{"rate_current_query"| translate }}</div>
+											<div class="tools">
+
+												<a href="javascript:;" class="collapse"></a>
+
+											</div>
+
+										</div>
+
+										<div class="portlet-body form">
+
+											<!-- BEGIN FORM-->
+
+											<form name="changeRateForm" action="#" class="horizontal-form">
+
+												<div class="row-fluid">
+
+													<div class="span4 ">
+
+														<div class="control-group">
+
+															<label class="control-label" for="originalCurrencyId">{{"rate_currency_org"| translate }}</label>
+
+															<div class="controls">
+
+																<select name='originalCurrencyId' class="m-wrap span12"  ng-model='originalCurrencyId' required id="originalCurrencyId">
+																	<option ng-repeat='cur in currencies' value={{cur.CurrencyId}}>{{cur.CurrencyDesc}}</option>
+																	
+																</select>
+																<span ng-show='changeRateForm.originalCurrencyId.$dirty && changeRateForm.originalCurrencyId.$invalid' class="error help-inline">{{"rate_currency_org_error"| translate }}</span>
+															</div>
+
+														</div>
+													</div>
+													<!--/span-->
+													<div class="span4 ">
+
+														<div class="control-group">
+
+															<label class="control-label" for="currencyId">{{"rate_currency_tar"| translate }}</label>
+
+															<div class="controls">
+
+																<select name='currencyId' class="m-wrap span12"  ng-model='currencyId' required id="currencyId">
+																	<option ng-repeat='cur in currencies' value={{cur.CurrencyId}}>{{cur.CurrencyDesc}}</option>
+																	
+																</select>
+																<span ng-show='changeRateForm.currencyId.$dirty && changeRateForm.currencyId.$invalid' class="error help-inline">{{"rate_currency_tar_error"| translate }}</span>
+															</div>
+
+														</div>
+													</div>
+													<!--/span-->
+
+													<div class="span4 ">
+
+														<div class="control-group">
+
+															<label class="control-label" for="rate">{{"rate_current_rate"| translate }}</label>
+
+															<div class="controls">
+
+																<input type="number" name="rate" class="m-wrap span12" ng-model='rate' ng-pattern='/^[0-9]+/' ng-maxlength='20' id="rate">
+																<span ng-show='changeRateForm.rate.$dirty && changeRateForm.rate.$invalid' class="error help-inline">{{"rate_rate_error"| translate }}</span>
+																
+															</div>
+
+														</div>
+
+													</div>
+
+													<!--/span-->
+												</div>
+
+												<!--/row--> 
+
+												<div class="row-fluid">
+													<a ng-disabled="!changeRateForm.$valid" ng-click='onSubmit()' class="btn grey"><i class="icon-plus"></i> {{"common_btn_add"| translate }}</a>
+
+													<a type="button" class="btn grey" ng-click='reset()'><i class="icon-remove"></i>{{"common_btn_rest"| translate }}</a>
+
+												</div>												
+
+											</form>
+
+											<!-- END FORM--> 
+
+										</div>
+
+						</div>
+
+						<div class="portlet box grey">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-list-alt"></i>{{"rate_current_title"| translate }}</div>
+							</div>
+
+							<div class="portlet-body">
+                                <div  ng-show='!isSuccess && errorMessage.length>0' class="alert alert-error">
+                                        {{errorMessage}}
+                                </div>
+
+                                <div ng-show='isSuccess' class="alert alert-success">
+                                        {{"common_msg_option"| translate }}
+                                </div>
+
+								<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+									<thead>
+
+										<tr>
+											<tr>
+											<th>{{"rate_date"| translate }}</th>
+											<th>{{"rate_currency_org"| translate }}</th>
+											<th>{{"rate_currency_tar"| translate }}</th>
+											<th class="hidden-480">{{"rate_rate"| translate }}</th>
+											<th class="hidden-480">{{"rate_status"| translate }}</th>
+                                            <th>{{"refund_query_applicant"|translate}}</th>
+                                            <th>{{"refund_query_approval"|translate}}</th>
+                                            <th>{{"refund_query_approvaltime"|translate}}</th>
+											<th class="hidden-480">{{"common_btn_option"| translate }}</th>
+										</tr>
+										</tr>
+
+									</thead>
+									<tbody>
+								       <tr class="odd gradeX" ng-repeat='item in $data'>
+
+											<td>{{item.CreatedDatetime}}</td>
+											<td>{{item.OriginalCurrencyName}}</td>
+											<td>{{item.CurrencyName}}</td>
+											<td class="number2 hidden-480">
+												<span ng-if="!item.$edit">1:{{item.Rate|toFixedFilter}}</span>
+												<div ng-if="item.$edit"><input class="form-control" type="number" ng-model="item.Rate" /></div>
+											</td>
+
+											<td><span class="label label-success">{{item.IsVerified|rateVerifyStatusFilter}}</span></td>
+                                            <td>{{item.Applicant}}</td>
+                                            <td>{{item.Approval}}</td>
+                                            <td>{{item.ApprovalTime}}</td>
+											<td >
+												<a ng-hide='item.IsVerified' ng-if="!item.$edit" href="" class="btn btn-default btn-xs" ng-click="item.$edit = true"><i class="icon-edit"></i>{{"common_btn_edit"| translate }}</a>
+								                <a ng-if="item.$edit" href="" class="btn btn-primary btn-xs" ng-click="onSave(item)"><i class="icon-save"></i>{{"common_btn_save"| translate }}</a>
+								                <a ng-if="item.$edit" class="btn btn-primary btn-xs" ng-click="tableParams.reload()"><i class="icon-remove-sign"></i>{{"common_btn_cancel"| translate }}</a>
+											</td>
+
+										</tr>
+								    </tbody>
+						    	</table>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>

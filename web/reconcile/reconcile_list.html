@@ -1,0 +1,98 @@
+<table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+									<thead>
+				 							<th class="hidden-480" >
+								               {{"clr_merchant_no"| translate }}
+								            </th>
+								            <th class="hidden-480">
+								                {{"clr_merchant_name"| translate }}
+								            </th>                                           
+                                             <th class="hidden-480" >
+								                {{"refund_add_currency"| translate }}
+								            </th>
+								            <th class="hidden-480">
+								                {{"clr_clr_date"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_tran_count"| translate }}
+								            </th>
+                                            <th class="hidden-480" >
+								                {{"clr_tran_postedcount"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"refund_add_amount"| translate }}
+								            </th>
+								            <th class="hidden-480" >
+								                {{"clr_refund_count"| translate }}
+								            </th>
+								            <th class="hidden-480">
+								                {{"clr_refund_amount"| translate }}
+								            </th>
+                                          <th class="hidden-480">
+								                {{"clr_refund_writeoffcount"| translate }}
+								            </th>
+                                          <th class="hidden-480">
+								                {{"clr_refund_writeoffamount"| translate }}
+								            </th>
+                                           <th class="hidden-480">
+								                {{"clr_fee"| translate }}
+								            </th>
+                                           <th class="hidden-480">
+								                {{"clr_clr_currency"| translate }}
+								            </th>
+                                           <th class="hidden-480">
+								                {{"clr_clr_amount"| translate }}
+								            </th>
+								             <th class="hidden-480">
+								              	 {{"common_btn_option"| translate }}
+								            </th>							
+									</thead>
+									<tbody>								
+										<tr ng-repeat="item in $data">
+								            <td class="hidden-480" >
+								                {{item.MerchantCode}}
+								            </td>
+								            <td class="hidden-480">
+								                {{item.MerchantDesc}}
+								            </td>                                          
+								            <td class="hidden-480">
+								                {{item.TranCurrencyCode}}
+								            </td>
+                                              <td class="hidden-480">
+								                {{item.ReconcileDate}}
+								            </td>
+								            <td class='number2'>
+								                {{item.TranCount}}
+								            </td>
+                                             <td class='number2'>
+								                {{item.PostedTranCount}}
+								            </td>
+                                             <td class='number2'>
+								                {{item.TranAmount}}
+								            </td>							         
+								            <td class="number2 hidden-480" >
+								                {{item.RefundCount}}
+								            </td>
+                                             <td class="number2 hidden-480" >
+								                {{item.RefundAmount}}
+								            </td>
+                                            <td class="number2 hidden-480" >
+								                {{item.WriteOffCount}}
+								            </td>
+                                            <td class="number2 hidden-480" >
+								                {{item.WriteOffAmount}}
+								            </td>
+								            <td class="number2 hidden-480" >
+								                {{item.Fee}}
+								            </td>
+								            <td class="hidden-480" >
+								                {{item.ClearCurrencyCode}}
+								            </td>
+								            <td class='number2'>
+								                {{item.ClearAmount}}
+								            </td>
+								             <td class="hidden-480" >
+								               <a ng-click='onDownload(item)' type="submit" class="btn grey"><i class="icon-download"></i>{{"common_btn__download"| translate }}</a>
+								            </td>
+										</tr>
+    </tbody>						      
+</table>

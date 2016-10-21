@@ -1,0 +1,217 @@
+<div id="dashboard">
+
+					<!-- BEGIN DASHBOARD STATS -->
+
+					<div class="row-fluid">
+
+						<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+
+							<div class="dashboard-stat blue">
+
+								<div class="visual">
+
+									<i class="icon-globe"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">
+
+										10,000$
+
+									</div>
+
+									<div class="desc">                           
+
+										外汇余额
+
+									</div>
+
+								</div>
+
+								<a class="more" href="#">
+
+								{{"main_metro_detail"| translate }}<i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+
+							<div class="dashboard-stat green">
+
+								<div class="visual">
+
+									<i class="icon-shopping-cart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">1,000￥</div>
+
+									<div class="desc">期货余额</div>
+
+								</div>
+
+								<a class="more" href="#">
+
+								{{"main_metro_detail"| translate }}<i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
+
+							<div class="dashboard-stat purple">
+
+								<div class="visual">
+
+									<i class="icon-globe"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">1,000￥</div>
+
+									<div class="desc">股票余额</div>
+
+								</div>
+
+								<a class="more" href="#">
+
+								{{"main_metro_detail"| translate }}<i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- END DASHBOARD STATS -->
+
+					<div class="clearfix"></div>
+
+					<div class="row-fluid">
+
+						<div class="span12">
+
+							<!-- BEGIN PORTLET-->
+
+							<div class="portlet solid bordered light-grey">
+
+								<div class="portlet-title">
+
+									<div class="caption"><i class="icon-bar-chart"></i>{{"main_chart_title_1"| translate }}</div>
+
+								</div>
+
+								<div class="portlet-body">
+
+									<div id="transactionHistory"></div>
+
+								</div>
+
+							</div>
+
+							<!-- END PORTLET-->
+
+						</div>
+
+					</div>
+
+</div>
+
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>外汇账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in fxAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="portlet box yellow">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>期货账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in qhAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="portlet box blue">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>股票账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in stAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

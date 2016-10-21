@@ -1,0 +1,69 @@
+<div class="header navbar navbar-inverse navbar-fixed-top">
+
+		<!-- BEGIN TOP NAVIGATION BAR -->
+
+		<div class="navbar-inner">
+
+			<div class="container-fluid">
+
+				<!-- BEGIN LOGO -->
+				<a class="brand" href="index.html#/main/welcome">
+
+				<img style='height:30px;' src="media/image/logo-greendot.png" alt="logo">
+
+				</a>
+
+				<!-- END LOGO -->
+
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+				<img src="media/image/menu-toggler.png" alt="">
+
+				</a>          
+
+				
+				<!-- END RESPONSIVE MENU TOGGLER -->            
+
+				<!-- BEGIN TOP NAVIGATION MENU -->              
+
+				<ul class="nav pull-right">
+					<li></li>
+				
+
+					<!-- END TODO DROPDOWN -->
+
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					<li class="dropdown user">
+
+					
+						<a class="dropdown-toggle" data-toggle="dropdown">
+
+						<span style='float:right; margin-right:20px;color: white; padding-top: 8px; font-size: 20px;'>Welcome, {{userInfo.userName}}({{userInfo.roleName}})</span>
+
+						<i style='  margin-top: 10px;' class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu">
+							<li><a ng-click='switchLang("cn")'><i class="icon-tasks"></i> 中文</a></li>
+							<li><a ng-click='switchLang("en")'><i class="icon-tasks"></i> English</a></li>
+							<li><a ng-click='logout()'><i class="icon-signout"></i> {{"login_lbl_logout"|translate}}</a></li>
+
+						</ul>
+					
+					</li>
+					<!-- END USER LOGIN DROPDOWN -->
+
+				</ul>
+
+				<!-- END TOP NAVIGATION MENU --> 
+
+			</div>
+
+		</div>
+
+		<!-- END TOP NAVIGATION BAR -->
+
+</div>

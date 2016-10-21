@@ -1,0 +1,91 @@
+﻿<div class="row-fluid">
+	
+<div class="portlet box green">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>外汇账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+					<th >账户类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in fxAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+					<td>{{item.Type}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="portlet box yellow">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>期货账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+					<th >账户类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in qhAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+					<td>{{item.Type}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="portlet box blue">
+	<div class="portlet-title">
+		<div class="caption"><i class="icon-cogs"></i>股票账户</div>
+	</div>
+	<div class="portlet-body flip-scroll">
+		<table class="table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th>序号</th>
+					<th>账户</th>
+					<th class="numeric">账户余额</th>
+					<th class="numeric">账户净值</th>
+					<th >更新日期</th>
+					<th >账户类型</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in stAccts">
+					<td >{{$index + 1}}</td>
+					<td>{{item.ID}}</td>
+					<td class="numeric">{{item.Balance}}</td>
+					<td class="numeric">{{item.Profit}}</td>
+					<td >{{item.Date}}</td>
+					<td>{{item.Type}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
